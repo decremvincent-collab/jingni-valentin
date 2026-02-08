@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>너와 함께 읽는 책 📖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #ffb6c1, #ff6b81, #2b2b52);
+      background-size: 300% 300%;
+      animation: gradientMove 12s ease infinite;
+      font-family: "Georgia", serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .book {
+      width: 90%;
+      max-width: 750px;
+      height: 80vh;
+      position: relative;
+      perspective: 2000px;
+    }
+
+    .page {
+      width: 100%;
+      height: 100%;
+      background: white;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform-origin: left;
+      transition: transform 1s ease;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      padding: 40px;
+      box-sizing: border-box;
+      overflow-y: auto;
+      border-radius: 10px;
+      backface-visibility: hidden;
+    }
+
+    .page h1 {
+      font-size: 1.7rem;
+      margin-bottom: 20px;
+      color: #b84d7a;
+    }
+
+    .page p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: #333;
+      white-space: pre-line;
+    }
+
+    .turn {
+      transform: rotateY(-180deg);
+    }
+
+    .controls {
+      position: absolute;
+      bottom: -60px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    button {
+      padding: 10px 18px;
+      border: none;
+      border-radius: 10px;
+      background: #ff6b81;
+      color: white;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #ff8fa3;
+      transform: scale(1.05);
+    }
+
+    /* Cœurs */
+    .heart {
+      position: fixed;
+      top: -10px;
+      font-size: 22px;
+      animation: fall 4s linear forwards;
+      opacity: 0.85;
+      z-index: 1;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(100vh) rotate(360deg); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="book">
+
+    <!-- PAGE 1 -->
+    <div class="page" id="p1" style="z-index: 5;">
+      <h1>옛날 옛적에…</h1>
+      <p>
+옛날 옛적에, 징니라는 아름답고 용감한 여왕이 살고 있었어.
+그녀는 자신의 왕국을 일본까지 넓히고 싶어 일본어를 배우기 시작했지.
+그리고 매일 밤 스트리밍을 하며 VPN이라는 마법 도구를 사용했어.
+
+하지만 아무리 노력해도 모든 것이 뜻대로 되지 않았고,
+일본의 거대한 전사들 앞에서 자신이 너무 작고 약하게 느껴졌어.
+      </p>
+    </div>
+
+    <!-- PAGE 2 -->
+    <div class="page" id="p2" style="z-index: 4;">
+      <h1>용맹한 기사의 등장</h1>
+      <p>
+그러던 어느 날, 한 명의 용맹한 기사 니로콰가 나타났어.
+그의 일본어는 조금 수상했지만,
+그와 함께 있을 때 징니는 처음으로 강해지는 느낌을 받았지.
+
+그런데 그는 정말 일본인이었을까?
+아니면 다른 세계에서 온 신비로운 기사였을까?
+그의 정체는 누구였을까?
+      </p>
+    </div>
+
+    <!-- PAGE 3 -->
+    <div class="page" id="p3" style="z-index: 3;">
+      <h1>힘을 되찾은 여왕</h1>
+      <p>
+니로콰와 함께한 뒤,
+징니는 점점 더 강해지고 자신감이 넘치기 시작했어.
+행운도 그녀에게 미소를 짓기 시작했지.
+
+그리고 징니의 미소는 동방 전체에서 가장 빛나는 미소였어.
+사람들은 하나둘씩 그녀의 매력에 빠져들었고,
+이제는 VPN의 힘이 필요 없었어.
+그녀의 미소만으로도 모든 문이 열렸거든.
+      </p>
+    </div>
+
+    <!-- PAGE 4 -->
+    <div class="page" id="p4" style="z-index: 2;">
+      <h1>운명적인 만남</h1>
+      <p>
+니로콰와 징니의 만남은 그야말로 순수한 감동의 순간이었어.
+강하고 용감한 기사였던 니로콰도
+징니 앞에서는 한없이 약해졌지.
+
+그녀의 순수한 아우라 앞에서
+그는 말 한마디도 제대로 하지 못했어.
+하지만 그 순간,
+그의 마음속에서 징니에 대한 존경과 사랑은 더욱 깊어졌어.
+      </p>
+    </div>
+
+    <!-- PAGE 5 -->
+    <div class="page" id="p5" style="z-index: 1;">
+      <h1>왕국의 정점</h1>
+      <p>
+이제 징니의 곁에는 수많은 기사들로 이루어진 강력한 군대가 모였어.
+모두가 그녀를 위해 싸우고,
+그녀의 미소를 지키기 위해 온 힘을 다했지.
+
+하지만 여왕에게는 왕이 필요했어.
+과연 누가 그녀의 왕이 될 수 있을까?
+그만큼 완벽하고 아름다운 사람이 있을까?
+
+(니로콰는 속으로 바랐어…
+‘부디 징니가 나를 왕으로 선택해주기를.’)
+
+하지만 그 답은 오직 미래만이 알고 있겠지.
+
+징니… 비록 내 마음만 향하고 있을지라도, 나는 너를 사랑해.
+그리고 너는 내 마음을 완전히 사로잡았어
+
+      </p>
+    </div>
+
+    <div class="controls">
+      <button onclick="prevPage()">← 이전</button>
+      <button onclick="nextPage()">다음 →</button>
+    </div>
+
+  </div>
+
+  <script>
+    let current = 1;
+    const total = 5;
+
+    function nextPage() {
+      if (current < total) {
+        document.getElementById("p" + current).classList.add("turn");
+        current++;
+      }
+    }
+
+    function prevPage() {
+      if (current > 1) {
+        current--;
+        document.getElementById("p" + current).classList.remove("turn");
+      }
+    }
+
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.textContent = ["💖","💘","💕","❤️","✨"][Math.floor(Math.random()*5)];
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = (Math.random()*20 + 20) + "px";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 4000);
+    }
+
+    setInterval(createHeart, 350);
+  </script>
+
+</body>
+</html>
