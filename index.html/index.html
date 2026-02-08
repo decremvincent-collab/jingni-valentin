@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>선물을 열어봐 🎁</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: radial-gradient(circle at top, #ffdde1 0%, #ee9ca7 100%);
+      overflow: hidden;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    .container {
+      text-align: center;
+      animation: fadeIn 2s ease forwards;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: white;
+      margin-bottom: 20px;
+      animation: pulse 2s infinite;
+    }
+
+    button {
+      padding: 14px 26px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.25);
+      color: white;
+      backdrop-filter: blur(6px);
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: rgba(255,255,255,0.45);
+      transform: scale(1.05);
+    }
+
+    /* Animation de coeurs */
+    .heart {
+      position: fixed;
+      top: -10px;
+      font-size: 24px;
+      animation: fall 4s linear forwards;
+      opacity: 0.8;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(100vh) rotate(360deg); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>선물을 열어봐 🎁</h1>
+    <button onclick="openGift()">클릭해서 열기</button>
+  </div>
+
+  <script>
+    function openGift() {
+      document.body.style.opacity = "0";
+      setTimeout(() => {
+        window.location.href = "main.html";
+      }, 800);
+    }
+
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.textContent = ["💖","💘","💕","❤️"][Math.floor(Math.random()*4)];
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = (Math.random()*20 + 20) + "px";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 4000);
+    }
+
+    setInterval(createHeart, 400);
+  </script>
+
+</body>
+</html>

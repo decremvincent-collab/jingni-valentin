@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>행복한 발렌타인 데이 💌</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at top, #ffb6c1 0, #ff6b81 40%, #2b2b52 100%);
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 24px;
+      padding: 28px 24px 32px;
+      max-width: 480px;
+      width: 90%;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(14px);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      z-index: 10;
+    }
+
+    .heart {
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      background: #ff4b6e;
+      transform: rotate(-45deg);
+      top: -40px;
+      right: -40px;
+      opacity: 0.25;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      background: #ff4b6e;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -60px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: 60px;
+      top: 0;
+    }
+
+    h1 {
+      font-size: 1.9rem;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      font-size: 0.95rem;
+      opacity: 0.9;
+      margin-bottom: 18px;
+    }
+
+    .divider {
+      width: 60px;
+      height: 2px;
+      background: rgba(255, 255, 255, 0.6);
+      margin: 10px auto 18px;
+      border-radius: 999px;
+    }
+
+    .section-title {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      opacity: 0.8;
+      margin-bottom: 8px;
+    }
+
+    .message {
+      font-size: 0.98rem;
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+
+    .signature {
+      margin-top: 18px;
+      font-size: 0.95rem;
+      opacity: 0.95;
+    }
+
+    .signature span {
+      display: block;
+    }
+
+    .small {
+      font-size: 0.8rem;
+      opacity: 0.8;
+      margin-top: 10px;
+    }
+
+    /* Animation des cœurs + étoiles */
+    .falling-container div {
+      position: fixed;
+      top: -20px;
+      animation: fall 4s linear forwards;
+      z-index: 1;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(100vh) rotate(360deg); }
+    }
+
+    /* Bouton musique */
+    #musicBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 10px 16px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.2);
+      color: white;
+      border: none;
+      backdrop-filter: blur(6px);
+      cursor: pointer;
+      font-size: 0.9rem;
+      z-index: 20;
+    }
+
+    #musicBtn:hover {
+      background: rgba(255,255,255,0.35);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+    <div class="heart"></div>
+
+    <h1>행복한 발렌타인 데이 💌</h1>
+    <p class="subtitle">멀리 있어도, 내 마음은 항상 너에게.</p>
+
+    <div class="divider"></div>
+
+    <p class="section-title">너에게 전하는 마음</p>
+
+    <p class="message">
+      오늘 직접 네 곁에 있어 줄 수는 없지만,<br>
+      적어도 우리 둘만의 작은 인터넷 공간을 선물해 주고 싶었어.
+    </p>
+
+    <p class="message">
+      존재해줘서 고마워. 너라서 더 고마워.
+    </p>
+
+    <p class="message">
+      오늘도, 그리고 앞으로도… 너와 함께 걸어가고 싶어.
+    </p>
+
+    <p class="message">
+      (음악 끊김 없이 보려면 책을 휠 클릭해서 열어줘요).
+    </p>
+
+    <p class="signature">
+      <span>프랑스에서… 💙</span>
+      <span>너를 생각하는 Nirokwa</span>
+    </p>
+
+    <p class="small">
+      비록 멀리 떨어져 있어도,<br>
+      내 마음은 언제나 너에게 닿아 있어.
+    </p>
+  </div>
+
+<a href="letter.html" style="
+  display:inline-block;
+  margin-top:20px;
+  padding:10px 18px;
+  background:rgba(255,255,255,0.25);
+  border-radius:12px;
+  color:white;
+  text-decoration:none;
+  backdrop-filter:blur(6px);
+">📖 이야기 읽기</a>
+
+  <!-- Animation cœurs + étoiles -->
+  <div class="falling-container"></div>
+
+  <script>
+    function createFallingElement() {
+      const container = document.querySelector('.falling-container');
+      const elem = document.createElement('div');
+
+      const symbols = ['💖', '✨', '💘', '⭐'];
+      elem.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+
+      elem.style.left = Math.random() * 100 + 'vw';
+      elem.style.fontSize = (Math.random() * 20 + 20) + 'px';
+      elem.style.opacity = Math.random() * 0.8 + 0.2;
+
+      container.appendChild(elem);
+
+      setTimeout(() => elem.remove(), 4000);
+    }
+
+    setInterval(createFallingElement, 400);
+  </script>
+
+  <!-- Lecteur audio libre de droit -->
+  <audio id="bgm" src="Lena_Park_-_(SkySound.cc).mp3" loop></audio>
+
+  <!-- Bouton musique -->
+  <button id="musicBtn" onclick="playMusic()">🔊 음악 켜기</button>
+
+  <script>
+    function playMusic() {
+      const audio = document.getElementById('bgm');
+      audio.volume = 1.0;
+      audio.play();
+      document.getElementById('musicBtn').innerText = "🎵 음악 재생 중";
+    }
+  </script>
+
+</body>
+</html>
